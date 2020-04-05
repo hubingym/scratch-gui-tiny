@@ -42,3 +42,4 @@ git clone https://github.com/hubingym/react-mini-framework scratch-gui-tiny
 1) 首先实现menu-bar，那么得先引入IntlProvider，好的实现基本的gui.jsx
 
 我遇到的问题，导入css时，无法得到样式的camelCase引入，实在搞不定customize-cra，只好react-scripts eject
+

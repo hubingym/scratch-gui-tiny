@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import styles from './index.css';
 import Gui from './components/gui/gui.jsx';
 // import * as serviceWorker from './serviceWorker';
 import state, { emitter } from './states';
@@ -9,6 +9,7 @@ import state, { emitter } from './states';
 import {IntlProvider} from 'react-intl';
 
 const rootDom = document.getElementById('root');
+rootDom.className = styles.app;
 function renderView() {
   // 打印全部数据,用于调试
   // console.log(getState());
