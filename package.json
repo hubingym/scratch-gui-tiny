@@ -3,14 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test"
   },
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-intl": "^4.3.1",
+    "react-intl": "2.9.0",
+    "react-responsive": "^8.0.3",
+    "react-style-proptype": "3.2.2",
     "scratch-audio": "0.1.0-prerelease.20190925183642",
     "scratch-blocks": "0.1.0-prerelease.1585138708",
     "scratch-l10n": "3.8.20200325112845",
@@ -24,8 +26,9 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "customize-cra": "^0.9.1",
-    "react-app-rewired": "^2.1.5",
+    "autoprefixer": "^9.7.5",
+    "postcss-import": "^12.0.1",
+    "postcss-simple-vars": "^5.0.2",
     "react-scripts": "3.4.1"
   },
   "eslintConfig": {

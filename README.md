@@ -1,19 +1,28 @@
 # scratch-gui-tiny
 最近有弄明白scratch-gui的需要，没什么比亲自实现一遍来的效果好，我将从零打造scratch gui代码，并且将步骤记录下来，方便大家学习
 
-为了理清scratch-gui的关键代码，我要将redux相关的代码去掉，我只关注如何实现的，不关注性能提升
+为了让大家弄明白scratch-gui的关键代码，我要将redux相关的代码去掉，我只关注如何实现的，不关注性能提升
 
 
 
-### 第一步：
+### 第一步：初始化代码
+
+克隆最基本的代码
 
 ```bash
-git clone https://github.com/hubingym/react-mini-framework
+git clone https://github.com/hubingym/react-mini-framework scratch-gui-tiny
 ```
 
-将文件夹重命名为scratch-gui-tiny
+安装react依赖:
 
-安装依赖: react-intl和scratch依赖
+```javascript
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-intl": "2.9.0",
+    "react-responsive": "^8.0.3",
+```
+
+安装scratch依赖
 
 ```javascript
 		"scratch-audio": "0.1.0-prerelease.20190925183642",
@@ -26,3 +35,10 @@ git clone https://github.com/hubingym/react-mini-framework
     "scratch-vm": "0.2.0-prerelease.20200319175700",
 ```
 
+
+
+### 第二步：基本布局
+
+1) 首先实现menu-bar，那么得先引入IntlProvider，好的实现基本的gui.jsx
+
+我遇到的问题，导入css时，无法得到样式的camelCase引入，实在搞不定customize-cra，只好react-scripts eject

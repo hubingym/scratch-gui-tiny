@@ -1,19 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { App } from './views';
+import Gui from './components/gui/gui.jsx';
 // import * as serviceWorker from './serviceWorker';
-import { emitter } from './states';
+import state, { emitter } from './states';
 // import { getState } from './states';
+
+import {IntlProvider} from 'react-intl';
 
 const rootDom = document.getElementById('root');
 function renderView() {
   // 打印全部数据,用于调试
   // console.log(getState());
   ReactDOM.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
+    <IntlProvider locale={state.locales.locale} messages={state.locales.messages}>
+      <Gui />
+    </IntlProvider>,
     rootDom
   );
 }

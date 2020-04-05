@@ -1,13 +1,15 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html,
+body,
+.app {
+    /* probably unecessary, transitional until layout is refactored */
+    width: 100%; 
+    height: 100%;
+    margin: 0;
+
+    /* Setting min height/width makes the UI scroll below those sizes */
+    min-width: 1024px;
+    min-height: 640px; /* Min height to fit sprite/backdrop button */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+/* @todo: move globally? Safe / side FX, for blocks particularly? */
+* { box-sizing: border-box; }
