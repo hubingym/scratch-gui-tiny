@@ -9,6 +9,11 @@ import colorPicker from './color-picker';
 import targets from './targets';
 import monitors from './monitors';
 import modals from './modals';
+import hoveredTarget from './hovered-target';
+import editorTab from './editor-tab';
+import alerts from './alerts';
+import blockDrag from './block-drag';
+import restoreDeletion from './restore-deletion';
 
 export * from './core';
 
@@ -29,6 +34,11 @@ const state = {
   targets,
   monitors,
   modals,
+  hoveredTarget,
+  editorTab,
+  alerts,
+  blockDrag,
+  restoreDeletion,
 };
 
 export default state;

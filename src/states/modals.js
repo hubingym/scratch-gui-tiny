@@ -1,3 +1,5 @@
+import { emitter } from './core';
+
 export default {
   backdropLibrary: false,
   cameraCapture: false,
@@ -10,4 +12,16 @@ export default {
   soundRecorder: false,
   connectionModal: false,
   tipsLibrary: false,
+  openBackdropLibrary() {
+    this.backdropLibrary = true;
+    emitter.forceUpdate();
+  },
+  openSpriteLibrary() {
+    this.spriteLibrary = true;
+    emitter.forceUpdate();
+  },
+  closeSpriteLibrary() {
+    this.spriteLibrary = false;
+    emitter.forceUpdate();
+  },
 }

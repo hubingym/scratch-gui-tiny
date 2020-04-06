@@ -75,5 +75,13 @@ language-selector
 
 
 
+### 第六步：设置角色和背景(target-pane)
+
+先不实现选择角色和背景
+
+
+
+
+
 
 
