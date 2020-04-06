@@ -57,10 +57,23 @@ git clone https://github.com/hubingym/react-mini-framework scratch-gui-tiny
 
 language-selector
 
-### 第四步：加载空项目
+
+
+### 第四步：加载默认项目
 
 先理清projectState
 
 加载画面: loader
 
 加载项目
+
+
+
+### 第五步：显示舞台(stage)
+
+先不实现monitor和VideoProvider
+
+目前stage不能正常运行，先注释掉
+
+
+

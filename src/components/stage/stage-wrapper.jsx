@@ -4,17 +4,29 @@ import VM from 'scratch-vm';
 
 import Box from '../box/box.jsx';
 import { STAGE_DISPLAY_SIZES } from '../../lib/layout-constants.js';
-// import StageHeader from '../../containers/stage-header.jsx';
-// import Stage from '../../containers/stage.jsx';
-// import Loader from '../loader/loader.jsx';
+import StageHeader from './stage-header.jsx';
+// TODO: 继续stage的移植
+// import Stage from './stage-container.jsx';
+import Loader from '../loader/loader.jsx';
 
 import styles from './stage-wrapper.css';
 
+import state from '../../states';
+
+function onActivateColorPicker() {
+  state.colorPicker.activateColorPicker();
+}
+
+function onDeactivateColorPicker(color) {
+  state.colorPicker.deactivateColorPicker(color);
+}
+
 const StageWrapperComponent = function (props) {
   const {
+    isFullScreen,
     isRtl,
     isRendererSupported,
-    // loading,
+    loading,
     stageSize,
     vm
   } = props;
@@ -24,10 +36,10 @@ const StageWrapperComponent = function (props) {
       dir={isRtl ? 'rtl' : 'ltr'}
     >
       <Box className={styles.stageMenuWrapper}>
-        {/* <StageHeader
+        <StageHeader
           stageSize={stageSize}
           vm={vm}
-        /> */}
+        />
       </Box>
       <Box className={styles.stageCanvasWrapper}>
         {/* {
@@ -35,15 +47,22 @@ const StageWrapperComponent = function (props) {
             <Stage
               stageSize={stageSize}
               vm={vm}
+              isColorPicking={state.colorPicker.active}
+              isFullScreen={state.mode.isFullScreen}
+              isStarted={state.vmStatus.started}
+              micIndicator={state.micIndicator}
+              useEditorDragStyle={!(state.mode.isFullScreen || state.mode.isPlayerOnly)}
+              onActivateColorPicker={onActivateColorPicker}
+              onDeactivateColorPicker={onDeactivateColorPicker}
             /> :
             null
         } */}
       </Box>
-      {/* {
+      {
         loading ? (
           <Loader isFullScreen={isFullScreen} />
         ) : null
-      } */}
+      }
     </Box >
   );
 };

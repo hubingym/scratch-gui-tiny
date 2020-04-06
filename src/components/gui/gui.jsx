@@ -5,6 +5,7 @@ import MediaQuery from 'react-responsive';
 
 import Box from '../box/box.jsx';
 import Loader from '../loader/loader.jsx';
+import DragLayer from '../drag-layer/drag-layer.jsx';
 import MenuBar from '../menu-bar/menu-bar.jsx';
 import StageWrapper from '../stage/stage-wrapper.jsx';
 import TargetPane from '../target-pane/target-pane.jsx';
@@ -19,7 +20,6 @@ import styles from './gui.css';
 // import soundsIcon from './icon--sounds.svg';
 
 import state from '../../states';
-const vm = state.vm;
 
 // const messages = defineMessages({
 //   addExtension: {
@@ -30,8 +30,9 @@ const vm = state.vm;
 // });
 
 const GUIComponent = props => {
+  const vm = state.vm;
   const isRtl = state.locales.isRtl;
-  const stageSizeMode = state.stageSize;
+  const stageSizeMode = state.stageSize.stageSize;
   const loading = state.projectState.isFetchingWithId();
 
   return (<MediaQuery minWidth={layout.fullSizeMinWidth}>{isFullSize => {
@@ -52,6 +53,7 @@ const GUIComponent = props => {
         {/* BackdropLibrary */}
 
         <MenuBar />
+
         <Box className={styles.bodyWrapper}>
           <Box className={styles.flexWrapper}>
             <Box className={styles.editorWrapper}></Box>
@@ -71,6 +73,12 @@ const GUIComponent = props => {
             </Box>
           </Box>
         </Box>
+
+        <DragLayer
+          dragging={state.assetDrag.dragging}
+          currentOffset={state.assetDrag.currentOffset}
+          img={state.assetDrag.img}
+        />
       </Box>
     );
   }}</MediaQuery>);
