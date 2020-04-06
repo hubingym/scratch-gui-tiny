@@ -7,8 +7,6 @@ import Box from '../box/box.jsx';
 import styles from './menu-bar.css';
 import scratchLogo from './scratch-logo.svg';
 
-console.log(styles)
-
 class MenuBar extends React.Component {
   render() {
     return (

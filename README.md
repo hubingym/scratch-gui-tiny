@@ -43,3 +43,10 @@ git clone https://github.com/hubingym/react-mini-framework scratch-gui-tiny
 
 我遇到的问题，导入css时，无法得到样式的camelCase引入，实在搞不定customize-cra，只好react-scripts eject
 
+2) 左边的Tabs
+
+3  右上的stage
+
+用到了vm，先定义vm
+
+4) 右下的target-pane

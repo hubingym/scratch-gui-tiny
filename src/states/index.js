@@ -1,6 +1,7 @@
-// import greet from './greet';
 import locales from './locales';
+import vm from './vm';
 
+import {STAGE_DISPLAY_SIZES} from '../lib/layout-constants';
 export * from './core/core';
 
 /**
@@ -8,6 +9,8 @@ export * from './core/core';
  */
 const state = {
   locales,
+  vm,
+  stageSize: STAGE_DISPLAY_SIZES.large,
 };
 
 export default state;
