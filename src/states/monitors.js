@@ -1,5 +1,9 @@
-import {OrderedMap} from 'immutable';
+import { emitter } from './core';
 
-const initialState = OrderedMap();
-
-export default initialState;
+export default {
+  monitors: {},
+  updateMonitors(monitorList) {
+    this.monitors = monitorList;
+    emitter.forceUpdate();
+  },
+};

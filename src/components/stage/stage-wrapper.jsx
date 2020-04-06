@@ -6,7 +6,7 @@ import Box from '../box/box.jsx';
 import { STAGE_DISPLAY_SIZES } from '../../lib/layout-constants.js';
 import StageHeader from './stage-header.jsx';
 // TODO: 继续stage的移植
-// import Stage from './stage-container.jsx';
+import Stage from './stage-container.jsx';
 import Loader from '../loader/loader.jsx';
 
 import styles from './stage-wrapper.css';
@@ -42,7 +42,7 @@ const StageWrapperComponent = function (props) {
         />
       </Box>
       <Box className={styles.stageCanvasWrapper}>
-        {/* {
+        {
           isRendererSupported ?
             <Stage
               stageSize={stageSize}
@@ -56,7 +56,7 @@ const StageWrapperComponent = function (props) {
               onDeactivateColorPicker={onDeactivateColorPicker}
             /> :
             null
-        } */}
+        }
       </Box>
       {
         loading ? (

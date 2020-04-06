@@ -73,7 +73,7 @@ language-selector
 
 先不实现monitor和VideoProvider
 
-目前stage不能正常运行，先注释掉
+
 
 
 

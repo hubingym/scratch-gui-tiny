@@ -30,7 +30,7 @@ function onGreenFlagClick(e) {
   if (e.shiftKey) {
       vm.setTurboMode(!state.vmStatus);
   } else {
-      if (!state.scratchGui.vmStatus.runningd) {
+      if (!state.vmStatus.running) {
           vm.start();
       }
       vm.greenFlag();

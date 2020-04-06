@@ -8,6 +8,7 @@ import vmStatus from './vm-status';
 import colorPicker from './color-picker';
 import targets from './targets';
 import monitors from './monitors';
+import modals from './modals';
 
 export * from './core';
 
@@ -27,6 +28,7 @@ const state = {
   micIndicator: false,
   targets,
   monitors,
+  modals,
 };
 
 export default state;

@@ -85,7 +85,7 @@ const StageHeaderComponent = function (props) {
     return function cleanup() {
       document.removeEventListener('keydown', onKeyPress);
     };
-  });
+  }, []);
 
   let header = null;
 

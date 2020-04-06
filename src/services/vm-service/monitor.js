@@ -1,3 +1,7 @@
+import state from '../../states';
+
 export default {
-  onMonitorsUpdate() { },
+  onMonitorsUpdate(monitorList) {
+    state.monitors.updateMonitors(monitorList);
+  },
 }

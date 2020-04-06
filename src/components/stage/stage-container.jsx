@@ -10,7 +10,7 @@ import {getEventXY} from '../../lib/touch-utils';
 import {SVGRenderer as V2SVGAdapter} from 'scratch-svg-renderer';
 import {BitmapAdapter as V2BitmapAdapter} from 'scratch-svg-renderer';
 
-import StageComponent from './stage.jsx';
+import StageComponent from './stage-component.jsx';
 
 const colorPickerRadius = 20;
 const dragThreshold = 3; // Same as the block drag threshold
