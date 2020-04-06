@@ -1,12 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { IntlProvider } from 'react-intl';
 import styles from './index.css';
 import Gui from './components/gui/gui.jsx';
 // import * as serviceWorker from './serviceWorker';
 import state, { emitter } from './states';
 // import { getState } from './states';
+import { vmService } from './services';
 
-import {IntlProvider} from 'react-intl';
+// 初始化vm
+vmService.initialize();
+
+// 点击了scratch logo
+const onClickLogo = () => {
+  window.location = 'https://scratch.mit.edu';
+};
+
+// location.hash中有projectId
+function handleHashChange () {
+  const hashMatch = window.location.hash.match(/#(\d+)/);
+  const hashProjectId = hashMatch === null ? state.projectState.defaultProjectId : hashMatch[1];
+  vmService.fetchProject(hashProjectId.toString());
+}
+window.addEventListener('hashchange', handleHashChange);
+handleHashChange(); // 提取projectId
+
+// 确认离开网页
+// function leavePageConfirm(e) {
+//   if (state.projectChanged) {
+//     // both methods of returning a value may be necessary for browser compatibility
+//     (e || window.event).returnValue = true;
+//     return true;
+//   }
+//   return; // Returning undefined prevents the prompt from coming up
+// }
+// window.onbeforeunload = e => leavePageConfirm(e);
 
 const rootDom = document.getElementById('root');
 rootDom.className = styles.app;
@@ -15,12 +43,16 @@ function renderView() {
   // console.log(getState());
   ReactDOM.render(
     <IntlProvider locale={state.locales.locale} messages={state.locales.messages}>
-      <Gui />
+      <Gui
+        canEditTitle
+        showComingSoon
+        canSave={false}
+        onClickLogo={onClickLogo}
+      />
     </IntlProvider>,
     rootDom
   );
 }
-
 emitter.onUpdate(renderView);
 renderView();
 

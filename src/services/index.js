@@ -1,5 +1,5 @@
-import greetService from './greetService';
+import vmService from './vm-service';
 
 export {
-  greetService,
+  vmService,
 };

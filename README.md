@@ -56,3 +56,11 @@ git clone https://github.com/hubingym/react-mini-framework scratch-gui-tiny
 ### 第三步：实现多国语言
 
 language-selector
+
+### 第四步：加载空项目
+
+先理清projectState
+
+加载画面: loader
+
+加载项目

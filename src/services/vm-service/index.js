@@ -1,0 +1,62 @@
+// import bindAll from 'lodash.bindall';
+import AudioEngine from 'scratch-audio';
+import state from '../../states';
+import storage from '../../lib/storage';
+
+// 将业务代码分散，使代码小巧
+import keybord from './keybord';
+import project from './project';
+import monitor from './monitor';
+import target from './target';
+
+class VmService {
+  constructor() {
+    this.vm = state.vm;
+    // bindAll(this, [
+    // ]);
+
+    this.handleKeyDown = keybord.handleKeyDown.bind(this);
+    this.handleKeyUp = keybord.handleKeyUp.bind(this);
+    this.fetchProject = project.fetchProject.bind(this);
+    this.loadProject = project.loadProject.bind(this);
+    this.onSetProjectUnchanged = project.onSetProjectUnchanged.bind(this);
+    this.handleTargetsUpdate = target.handleTargetsUpdate.bind(this);
+    this.onMonitorsUpdate = monitor.onMonitorsUpdate.bind(this);
+  }
+
+  initialize() {
+    const vm = this.vm;
+    // storage
+    vm.attachStorage(storage);
+    // audio
+    vm.attachAudioEngine(new AudioEngine());
+    vm.setCompatibilityMode(true);
+    vm.initialized = true;
+    // TODO:需要考虑切换语言的情况
+    vm.setLocale(state.locales.locale, state.locales.messages);
+
+    vm.on('targetsUpdate', this.handleTargetsUpdate);
+    vm.on('MONITORS_UPDATE', this.onMonitorsUpdate);
+    // vm.on('BLOCK_DRAG_UPDATE', onBlockDragUpdate);
+    // vm.on('TURBO_MODE_ON', onTurboModeOn);
+    // vm.on('TURBO_MODE_OFF', onTurboModeOff);
+    // vm.on('PROJECT_RUN_START', onProjectRunStart);
+    // vm.on('PROJECT_RUN_STOP', onProjectRunStop);
+    vm.on('PROJECT_CHANGED', () => { this.onSetProjectUnchanged(true); });
+    // vm.on('RUNTIME_STARTED', onRuntimeStarted);
+    // vm.on('PROJECT_START', onGreenFlag);
+    // vm.on('PERIPHERAL_CONNECTION_LOST_ERROR', onShowExtensionAlert);
+    // vm.on('MIC_LISTENING', onMicListeningUpdate);
+    // vm.on('HAS_CLOUD_DATA_UPDATE', handleCloudDataUpdate);
+
+    document.addEventListener('keydown', this.handleKeyDown);
+    document.addEventListener('keyup', this.handleKeyUp);
+
+    // vm.postIOData('userData', {username: this.props.username});
+
+    // 开启虚拟机
+    vm.start();
+  }
+}
+
+export default new VmService();

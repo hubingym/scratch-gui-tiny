@@ -1,5 +1,6 @@
+import VM from 'scratch-vm';
 import locales from './locales';
-import vm from './vm';
+import projectState from './project-state';
 import {STAGE_DISPLAY_SIZES} from '../lib/layout-constants';
 export * from './core';
 
@@ -8,8 +9,10 @@ export * from './core';
  */
 const state = {
   locales,
-  vm,
+  vm: new VM(),
   stageSize: STAGE_DISPLAY_SIZES.large,
+  projectChanged: false,
+  projectState,
 };
 
 export default state;

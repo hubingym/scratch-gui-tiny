@@ -4,6 +4,7 @@ import { defineMessages, FormattedMessage, injectIntl, intlShape } from 'react-i
 import MediaQuery from 'react-responsive';
 
 import Box from '../box/box.jsx';
+import Loader from '../loader/loader.jsx';
 import MenuBar from '../menu-bar/menu-bar.jsx';
 import StageWrapper from '../stage/stage-wrapper.jsx';
 import TargetPane from '../target-pane/target-pane.jsx';
@@ -31,6 +32,7 @@ const vm = state.vm;
 const GUIComponent = props => {
   const isRtl = state.locales.isRtl;
   const stageSizeMode = state.stageSize;
+  const loading = state.projectState.isFetchingWithId();
 
   return (<MediaQuery minWidth={layout.fullSizeMinWidth}>{isFullSize => {
     const stageSize = resolveStageSize(stageSizeMode, isFullSize);
@@ -40,7 +42,12 @@ const GUIComponent = props => {
         dir={isRtl ? 'rtl' : 'ltr'}
       >
         {/* TelemetryModal */}
-        {/* Loader */}
+        {loading ? (
+          <Loader />
+        ) : null}
+        {/* {isCreating ? (
+          <Loader messageId="gui.loader.creating" />
+        ) : null} */}
         {/* CostumeLibrary */}
         {/* BackdropLibrary */}
 
