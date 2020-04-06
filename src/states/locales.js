@@ -2,13 +2,24 @@ import {addLocaleData} from 'react-intl';
 
 import {localeData} from 'scratch-l10n';
 import editorMessages from 'scratch-l10n/locales/editor-msgs';
-// import {isRtl} from 'scratch-l10n';
+import {isRtl} from 'scratch-l10n';
+
+import { emitter } from './core';
 
 addLocaleData(localeData);
 
+const local = 'zh-cn';
+document.documentElement.lang = local;
 export default {
   isRtl: false,
-  locale: 'zh-cn',
-  // messagesByLocale: editorMessages,
-  messages: editorMessages['zh-cn'],
+  locale: local,
+  messagesByLocale: editorMessages,
+  messages: editorMessages[local],
+  onChangeLanguage(newLocale) {
+    this.isRtl = isRtl(newLocale)
+    this.locale = newLocale;
+    this.messages = editorMessages[newLocale];
+    document.documentElement.lang = newLocale;
+    emitter.forceUpdate();
+  }
 };

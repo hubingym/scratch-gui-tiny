@@ -1,11 +1,35 @@
-import React from 'react';
-// import { defineMessages, FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import classNames from 'classnames';
+import React from 'react';
+import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 
 import Box from '../box/box.jsx';
+import LanguageSelector from '../language-selector/language-selector.jsx';
 
 import styles from './menu-bar.css';
+
+// import helpIcon from '../../lib/assets/icon--tutorials.svg';
+// import mystuffIcon from './icon--mystuff.png';
+// import profileIcon from './icon--profile.png';
+// import remixIcon from './icon--remix.svg';
+import dropdownCaret from './dropdown-caret.svg';
+import languageIcon from '../language-selector/language-icon.svg';
+
 import scratchLogo from './scratch-logo.svg';
+
+// import sharedMessages from '../../lib/shared-messages';
+
+const ariaMessages = defineMessages({
+  language: {
+    id: 'gui.menuBar.LanguageSelector',
+    defaultMessage: 'language selector',
+    description: 'accessibility text for the language selection menu'
+  },
+  tutorials: {
+    id: 'gui.menuBar.tutorialsLibrary',
+    defaultMessage: 'Tutorials',
+    description: 'accessibility text for the tutorials button'
+  }
+});
 
 class MenuBar extends React.Component {
   render() {
@@ -29,6 +53,36 @@ class MenuBar extends React.Component {
                 onClick={this.props.onClickLogo}
               />
             </div>
+
+            {(this.props.canChangeLanguage) && (<div
+              className={classNames(styles.menuBarItem, styles.hoverable, styles.languageMenu)}
+            >
+              <div>
+                <img alt=''
+                  className={styles.languageIcon}
+                  src={languageIcon}
+                />
+                <img alt=''
+                  className={styles.languageCaret}
+                  src={dropdownCaret}
+                />
+              </div>
+              <LanguageSelector label={this.props.intl.formatMessage(ariaMessages.language)} />
+            </div>)}
+
+            {(this.props.canManageFiles) && (
+              <div
+                className={classNames(styles.menuBarItem, styles.hoverable, {
+                  [styles.active]: this.props.fileMenuOpen
+                })}
+              >
+                <FormattedMessage
+                  defaultMessage="File"
+                  description="Text for file dropdown menu"
+                  id="gui.menuBar.file"
+                />
+              </div>
+            )}
           </div>
         </div>
       </Box>
@@ -37,8 +91,10 @@ class MenuBar extends React.Component {
 }
 
 MenuBar.defaultProps = {
+  canChangeLanguage: true,
+  canManageFiles: true,
   logo: scratchLogo,
-  onShare: () => {}
+  onShare: () => { }
 };
 
-export default MenuBar;
+export default injectIntl(MenuBar);

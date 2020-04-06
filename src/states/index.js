@@ -1,8 +1,7 @@
 import locales from './locales';
 import vm from './vm';
-
 import {STAGE_DISPLAY_SIZES} from '../lib/layout-constants';
-export * from './core/core';
+export * from './core';
 
 /**
  * 在这儿定义状态对应的初始化数据

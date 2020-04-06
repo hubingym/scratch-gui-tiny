@@ -25,7 +25,7 @@ git clone https://github.com/hubingym/react-mini-framework scratch-gui-tiny
 安装scratch依赖
 
 ```javascript
-		"scratch-audio": "0.1.0-prerelease.20190925183642",
+    "scratch-audio": "0.1.0-prerelease.20190925183642",
     "scratch-blocks": "0.1.0-prerelease.1585138708",
     "scratch-l10n": "3.8.20200325112845",
     "scratch-paint": "0.2.0-prerelease.20200213174123",
@@ -39,14 +39,20 @@ git clone https://github.com/hubingym/react-mini-framework scratch-gui-tiny
 
 ### 第二步：基本布局
 
-1) 首先实现menu-bar，那么得先引入IntlProvider，好的实现基本的gui.jsx
+1) 首先实现menu-bar，那么得先引入IntlProvider，且需要实现最基本的gui.jsx
 
 我遇到的问题，导入css时，无法得到样式的camelCase引入，实在搞不定customize-cra，只好react-scripts eject
 
 2) 左边的Tabs
 
-3  右上的stage
+3) 右上的stage
 
 用到了vm，先定义vm
 
 4) 右下的target-pane
+
+
+
+### 第三步：实现多国语言
+
+language-selector
