@@ -14,6 +14,9 @@ import editorTab from './editor-tab';
 import alerts from './alerts';
 import blockDrag from './block-drag';
 import restoreDeletion from './restore-deletion';
+import toolbox from './toolbox';
+import connectionModal from './connection-modal';
+import customProcedures from './custom-procedures';
 
 export * from './core';
 
@@ -39,6 +42,9 @@ const state = {
   alerts,
   blockDrag,
   restoreDeletion,
+  toolbox,
+  connectionModal,
+  customProcedures,
 };
 
 export default state;

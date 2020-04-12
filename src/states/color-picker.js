@@ -17,4 +17,7 @@ export default {
     this.active = false;
     emitter.forceUpdate();
   },
+  setCallback(callback) {
+    this.callback = callback;
+  },
 }

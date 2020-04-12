@@ -11,7 +11,7 @@ export default {
   SOUNDS_TAB_INDEX,
   activeTabIndex: BLOCKS_TAB_INDEX,
   activateTab(tab) {
-    this.activateTab = tab;
+    this.activeTabIndex = tab;
     emitter.forceUpdate();
   }
 }

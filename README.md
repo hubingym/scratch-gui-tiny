@@ -17,9 +17,16 @@ git clone https://github.com/hubingym/react-mini-framework scratch-gui-tiny
 
 ```javascript
     "react": "^16.13.1",
+    "react-contextmenu": "^2.13.0",
     "react-dom": "^16.13.1",
+    "react-draggable": "^4.2.0",
     "react-intl": "2.9.0",
+    "react-modal": "^3.11.2",
+    "react-popover": "^0.5.10",
     "react-responsive": "^8.0.3",
+    "react-tabs": "^3.1.0",
+    "react-tooltip": "^4.1.5",
+    "react-virtualized": "^9.21.2",
 ```
 
 安装scratch依赖
@@ -78,6 +85,10 @@ language-selector
 ### 第六步：设置角色和背景(target-pane)
 
 先不实现选择角色和背景
+
+
+
+### 第七步: 编程(blocks)
 
 
 

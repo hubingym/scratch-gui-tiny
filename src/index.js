@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { IntlProvider } from 'react-intl';
+import ReactModal from 'react-modal';
 import styles from './index.css';
 import Gui from './components/gui/gui.jsx';
 // import * as serviceWorker from './serviceWorker';
@@ -54,6 +55,7 @@ function renderView() {
   );
 }
 emitter.onUpdate(renderView);
+ReactModal.setAppElement(rootDom);
 renderView();
 
 // If you want your app to work offline and load faster, you can change
