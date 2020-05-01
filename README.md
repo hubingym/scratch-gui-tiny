@@ -92,6 +92,12 @@ language-selector
 
 
 
+### 第八步: 造型
+
+scratch-paint用到了redux
+
+
+
 
 
 

@@ -12,6 +12,8 @@ import DragLayer from '../drag-layer/drag-layer.jsx';
 import MenuBar from '../menu-bar/menu-bar.jsx';
 import StageWrapper from '../stage/stage-wrapper.jsx';
 import TargetPane from '../target-pane/target-pane.jsx';
+import Watermark from '../../containers/watermark.jsx';
+import CostumeTab from '../../containers/costume-tab.jsx';
 
 import layout from '../../lib/layout-constants';
 import { resolveStageSize } from '../../lib/screen-utils';
@@ -169,12 +171,12 @@ const GUIComponent = props => {
                         />
                     </button>
                   </Box> */}
-                  {/* <Box className={styles.watermark}>
+                  <Box className={styles.watermark}>
                     <Watermark />
-                  </Box> */}
+                  </Box>
                 </TabPanel>
                 <TabPanel className={tabClassNames.tabPanel}>
-                  {/* {costumesTabVisible ? <CostumeTab vm={vm} /> : null} */}
+                  {costumesTabVisible ? <CostumeTab vm={vm} /> : null}
                 </TabPanel>
                 <TabPanel className={tabClassNames.tabPanel}>
                   {/* {soundsTabVisible ? <SoundTab vm={vm} /> : null} */}
