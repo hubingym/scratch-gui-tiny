@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { IntlProvider } from 'react-intl';
 import ReactModal from 'react-modal';
 import styles from './index.css';
-import Gui from './components/gui/gui.jsx';
+import Gui from './container/gui.jsx';
 // import * as serviceWorker from './serviceWorker';
 import state, { emitter } from './states';
 // import { getState } from './states';
