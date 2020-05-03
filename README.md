@@ -98,6 +98,12 @@ scratch-paint用到了redux
 
 
 
+### 第九步: 声音
+
+
+
+
+
 
 
 
