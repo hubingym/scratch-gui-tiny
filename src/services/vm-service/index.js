@@ -11,7 +11,7 @@ import target from './target';
 
 class VmService {
   constructor() {
-    this.vm = state.vm;
+    this.vm = state.scratchGui.vm;
     // bindAll(this, [
     // ]);
 
@@ -38,12 +38,12 @@ class VmService {
     vm.on('targetsUpdate', this.handleTargetsUpdate);
     vm.on('MONITORS_UPDATE', this.onMonitorsUpdate);
     // vm.on('BLOCK_DRAG_UPDATE', onBlockDragUpdate);
-    vm.on('TURBO_MODE_ON', () => { state.vmStatus.setTurboState(true); });
-    vm.on('TURBO_MODE_OFF', () => { state.vmStatus.setTurboState(false); });
-    vm.on('PROJECT_RUN_START', () => { state.vmStatus.setRunningState(true); });
-    vm.on('PROJECT_RUN_STOP', () => { state.vmStatus.setRunningState(false); });
+    vm.on('TURBO_MODE_ON', () => { state.scratchGui.vmStatus.setTurboState(true); });
+    vm.on('TURBO_MODE_OFF', () => { state.scratchGui.vmStatus.setTurboState(false); });
+    vm.on('PROJECT_RUN_START', () => { state.scratchGui.vmStatus.setRunningState(true); });
+    vm.on('PROJECT_RUN_STOP', () => { state.scratchGui.vmStatus.setRunningState(false); });
     vm.on('PROJECT_CHANGED', () => { this.onSetProjectUnchanged(true); });
-    vm.on('RUNTIME_STARTED', () => { state.vmStatus.setStartedState(true); });
+    vm.on('RUNTIME_STARTED', () => { state.scratchGui.vmStatus.setStartedState(true); });
     vm.on('PROJECT_START', () => { console.log('onGreenFlag'); });
     // vm.on('PERIPHERAL_CONNECTION_LOST_ERROR', onShowExtensionAlert);
     // vm.on('MIC_LISTENING', onMicListeningUpdate);

@@ -3,13 +3,13 @@ import storage from '../../lib/storage';
 
 export default {
   fetchProject(projectId) {
-    state.projectState.setProjectId(projectId);
+    state.scratchGui.projectState.setProjectId(projectId);
     return storage
       .load(storage.AssetType.Project, projectId, storage.DataFormat.JSON)
       .then(projectAsset => {
         if (projectAsset) {
           // console.log(projectAsset.data);
-          state.projectState.onFetchedProjectData(projectAsset.data);
+          state.scratchGui.projectState.onFetchedProjectData(projectAsset.data);
           setTimeout(() => { this.loadProject(); });
         } else {
           // Treat failure to load as an error
@@ -25,7 +25,7 @@ export default {
   },
 
   loadProject() {
-    return this.vm.loadProject(state.projectState.projectData)
+    return this.vm.loadProject(state.scratchGui.projectState.projectData)
       .then(() => {
         // this.onLoadedProject(this.loadingState, this.canSave);
         // Wrap in a setTimeout because skin loading in
@@ -49,7 +49,7 @@ export default {
   },
 
   onSetProjectUnchanged(changed) {
-    state.projectChanged = changed;
+    state.scratchGui.projectChanged = changed;
     emitter.forceUpdate();
   }
 }

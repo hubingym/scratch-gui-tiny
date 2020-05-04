@@ -20,7 +20,7 @@ const onClickLogo = () => {
 // location.hash中有projectId
 function handleHashChange () {
   const hashMatch = window.location.hash.match(/#(\d+)/);
-  const hashProjectId = hashMatch === null ? state.projectState.defaultProjectId : hashMatch[1];
+  const hashProjectId = hashMatch === null ? state.scratchGui.projectState.defaultProjectId : hashMatch[1];
   vmService.fetchProject(hashProjectId.toString());
 }
 window.addEventListener('hashchange', handleHashChange);
@@ -28,7 +28,7 @@ handleHashChange(); // 提取projectId
 
 // 确认离开网页
 // function leavePageConfirm(e) {
-//   if (state.projectChanged) {
+//   if (state.scratchGui.projectChanged) {
 //     // both methods of returning a value may be necessary for browser compatibility
 //     (e || window.event).returnValue = true;
 //     return true;

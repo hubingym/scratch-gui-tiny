@@ -105,6 +105,7 @@ scratch-paint用到了redux
 ### 第十步: 重头来过，解决遗留问题
 
 1. vm语言切换
+2. menu-bar
 
 
 

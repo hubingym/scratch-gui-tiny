@@ -1,13 +1,13 @@
 import state from '../../states';
 
 function shouldUpdateTargets() {
-  return !state.mode.isFullScreen && !state.mode.isPlayerOnly && !state.modals.soundRecorder;
+  return !state.scratchGui.mode.isFullScreen && !state.scratchGui.mode.isPlayerOnly && !state.scratchGui.modals.soundRecorder;
 }
 
 export default {
   handleTargetsUpdate(data) {
     if (shouldUpdateTargets()) {
-        state.targets.updateTargets(data.targetList, data.editingTarget);
+        state.scratchGui.targets.updateTargets(data.targetList, data.editingTarget);
     }
   }
 }
