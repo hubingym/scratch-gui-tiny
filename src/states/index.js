@@ -17,13 +17,16 @@ import restoreDeletion from './restore-deletion';
 import toolbox from './toolbox';
 import connectionModal from './connection-modal';
 import customProcedures from './custom-procedures';
+import menus from './menus';
+import projectTitle from './project-title';
+import projectChanged from './project-changed';
 
 export * from './core';
 
 const scratchGui = {
   vm: new VM(),
   stageSize,
-  projectChanged: false,
+  projectChanged,
   projectState,
   assetDrag,
   mode,
@@ -41,6 +44,8 @@ const scratchGui = {
   toolbox,
   connectionModal,
   customProcedures,
+  menus,
+  projectTitle,
 }
 
 /**

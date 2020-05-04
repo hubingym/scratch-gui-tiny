@@ -14,7 +14,7 @@ export default {
   locale: local,
   messagesByLocale: editorMessages,
   messages: editorMessages[local],
-  onChangeLanguage(newLocale) {
+  selectLocale(newLocale) {
     this.isRtl = isRtl(newLocale)
     this.locale = newLocale;
     this.messages = editorMessages[newLocale];

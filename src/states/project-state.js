@@ -1,4 +1,5 @@
 import keyMirror from 'keymirror';
+import { emitter } from './core';
 
 const LoadingState = keyMirror({
   NOT_LOADED: null,
@@ -57,16 +58,16 @@ const getIsLoading = loadingState => (
 // const getIsRemixing = loadingState => (
 //   loadingState === LoadingState.REMIXING
 // );
-// const getIsUpdating = loadingState => (
-//   loadingState === LoadingState.AUTO_UPDATING ||
-//   loadingState === LoadingState.MANUAL_UPDATING ||
-//   loadingState === LoadingState.UPDATING_BEFORE_COPY ||
-//   loadingState === LoadingState.UPDATING_BEFORE_NEW
-// );
-// const getIsShowingProject = loadingState => (
-//   loadingState === LoadingState.SHOWING_WITH_ID ||
-//   loadingState === LoadingState.SHOWING_WITHOUT_ID
-// );
+const getIsUpdating = loadingState => (
+  loadingState === LoadingState.AUTO_UPDATING ||
+  loadingState === LoadingState.MANUAL_UPDATING ||
+  loadingState === LoadingState.UPDATING_BEFORE_COPY ||
+  loadingState === LoadingState.UPDATING_BEFORE_NEW
+);
+const getIsShowingProject = loadingState => (
+  loadingState === LoadingState.SHOWING_WITH_ID ||
+  loadingState === LoadingState.SHOWING_WITHOUT_ID
+);
 // const getIsShowingWithId = loadingState => (
 //   loadingState === LoadingState.SHOWING_WITH_ID
 // );
@@ -85,6 +86,8 @@ const projectState = {
   projectId: null,
   loadingState: LoadingState.NOT_LOADED,
   defaultProjectId,
+  getIsUpdating,
+  getIsShowingProject,
   isLoading() {
     return getIsLoading(this.loadingState);
   },
@@ -98,7 +101,14 @@ const projectState = {
   onFetchedProjectData(data) {
     this.projectData = data;
     this.loadingState = this.projectId === defaultProjectId ? LoadingState.LOADING_VM_NEW_DEFAULT : LoadingState.LOADING_VM_WITH_ID;
-  }
+  },
+  manualUpdateProject() {
+    if (this.loadingState === LoadingState.SHOWING_WITH_ID) {
+      this.loadingState = LoadingState.MANUAL_UPDATING;
+
+      emitter.forceUpdate();
+    }
+  },
 };
 
 export default projectState;

@@ -28,7 +28,7 @@ handleHashChange(); // 提取projectId
 
 // 确认离开网页
 // function leavePageConfirm(e) {
-//   if (state.scratchGui.projectChanged) {
+//   if (state.scratchGui.projectChanged.projectChanged) {
 //     // both methods of returning a value may be necessary for browser compatibility
 //     (e || window.event).returnValue = true;
 //     return true;

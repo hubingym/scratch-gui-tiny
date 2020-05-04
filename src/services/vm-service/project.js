@@ -49,7 +49,7 @@ export default {
   },
 
   onSetProjectUnchanged(changed) {
-    state.scratchGui.projectChanged = changed;
+    state.scratchGui.projectChanged.projectChanged = changed;
     emitter.forceUpdate();
   }
 }
