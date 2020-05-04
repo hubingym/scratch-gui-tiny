@@ -15,6 +15,8 @@ class VmService {
     // bindAll(this, [
     // ]);
 
+    this.locale = '';
+
     this.handleKeyDown = keybord.handleKeyDown.bind(this);
     this.handleKeyUp = keybord.handleKeyUp.bind(this);
     this.fetchProject = project.fetchProject.bind(this);
@@ -32,8 +34,6 @@ class VmService {
     vm.attachAudioEngine(new AudioEngine());
     vm.setCompatibilityMode(true);
     vm.initialized = true;
-    // TODO:需要考虑切换语言的情况
-    vm.setLocale(state.locales.locale, state.locales.messages);
 
     vm.on('targetsUpdate', this.handleTargetsUpdate);
     vm.on('MONITORS_UPDATE', this.onMonitorsUpdate);
@@ -56,6 +56,15 @@ class VmService {
 
     // 开启虚拟机
     vm.start();
+  }
+
+  /**
+   * 监控语言是否变化,设置vm的locale
+   */
+  updateLocale(locale, messages) {
+    if (this.locale === locale) return;
+    this.locale = locale;
+    this.vm.setLocale(locale, messages);
   }
 }
 

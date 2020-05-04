@@ -14,7 +14,7 @@ vmService.initialize();
 
 // 点击了scratch logo
 const onClickLogo = () => {
-  window.location = 'https://scratch.mit.edu';
+  // window.location = 'https://scratch.mit.edu';
 };
 
 // location.hash中有projectId
@@ -42,8 +42,15 @@ rootDom.className = styles.app;
 function renderView() {
   // 打印全部数据,用于调试
   // console.log(getState());
+
+  const locale = state.locales.locale;
+  const messages = state.locales.messages;
+
+  // 设置vm locale
+  vmService.updateLocale(locale, messages);
+
   ReactDOM.render(
-    <IntlProvider locale={state.locales.locale} messages={state.locales.messages}>
+    <IntlProvider locale={locale} messages={messages}>
       <Gui
         canEditTitle
         showComingSoon

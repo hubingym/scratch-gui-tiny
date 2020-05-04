@@ -20,11 +20,7 @@ import customProcedures from './custom-procedures';
 
 export * from './core';
 
-/**
- * 在这儿定义状态对应的初始化数据
- */
-const state = {
-  locales,
+const scratchGui = {
   vm: new VM(),
   stageSize,
   projectChanged: false,
@@ -45,6 +41,14 @@ const state = {
   toolbox,
   connectionModal,
   customProcedures,
+}
+
+/**
+ * 在这儿定义状态对应的初始化数据
+ */
+const state = {
+  locales,
+  scratchGui,
 };
 
 export default state;
